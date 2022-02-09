@@ -1,75 +1,49 @@
 package virtual_pet;
 
-public class VirtualPet {
+public abstract class VirtualPet {
 
 
-    private String breed;
-    private String furColor;
-    private int age;
-    private int hunger;
-    private String name;
-    private int thirst;
-    private int boredom;
-    private boolean dead;
 
-    public VirtualPet(String breed, String furColor, int age, int hunger, String name, int thirst, int boredom) {
-        this.breed = breed;
-        this.furColor = furColor;
+    protected int age;
+    protected String name;
+    protected int boredom;
+    protected boolean dead;
+
+
+    public VirtualPet(String name, int age) {
+
+
         this.age = age;
-        this.hunger = hunger;
-        this.name = name;
-        this.thirst = thirst;
-        this.boredom = boredom;
-        this.dead = false;
-    }
 
-    public int getThirst() {
-        return thirst;
+        this.name = name;
+
+        this.boredom = 0;
+        this.dead = false;
+
+
+
     }
 
     public int getBoredom() {
         return boredom;
     }
 
-    public String getBreed() {
-        return breed;
-    }
 
-    public String getFurColor() {
-        return furColor;
-    }
 
     public int getAge() {
         return age;
     }
 
-    public int getHunger() {
-        return hunger;
-    }
+
 
     public String getName() {
         return name;
     }
 
-    public void tick() {
-        hunger++;
-        thirst++;
-        boredom++;
-        if(hunger > 20 || thirst>20 ||boredom > 20){
-            dead = true;
-        }
-    }
-
-    public void feed() {
-        hunger -= 5;
-    }
+    public abstract void tick();
 
     public void play() {
         boredom -= 10;
-    }
-
-    public void water() {
-        thirst -= 15;
     }
 
     public boolean isDead() {
@@ -78,6 +52,8 @@ public class VirtualPet {
     public void isAdopted(){
         return;
     }
+
+
 }
 
 

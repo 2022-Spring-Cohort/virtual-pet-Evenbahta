@@ -27,7 +27,7 @@ public class PetShelter {
     }
     public void feedAllPets(){
         for (VirtualPet currentPet:shelter) {
-            currentPet.feed();
+            //currentPet.feed();
         }
     }
     public void tickAllPets(){
@@ -42,7 +42,7 @@ public class PetShelter {
     }
     public void waterAllPets(){
         for (VirtualPet currentPet:shelter){
-            currentPet.water();
+            //currentPet.water();
         }
     }
     public void addAllPets(){
@@ -62,5 +62,30 @@ public class PetShelter {
         }
 
     }
+    public void walkAllPets(){
+        for (VirtualPet currentPet:shelter){
+            if(currentPet instanceof Walkable){
+                ((Walkable)currentPet).walk();
+            }
+
+        }
+    }
+    public void cleanAllPets(){
+        for (VirtualPet currentPet:shelter){
+            if(currentPet instanceof OrganicPet){
+                ((OrganicPet)currentPet).wash();
+            }
+
+        }
+    }
+    public void maintainAllPets(){
+        for (VirtualPet currentPet:shelter){
+            if(currentPet instanceof RoboticPet){
+                ((RoboticPet)currentPet).batterCharge();
+            }
+
+        }
+    }
+
 
 }

@@ -17,18 +17,21 @@ public class VirtualPetApplication {
   public void play(){
         PetShelter myShelter = new PetShelter();
       System.out.println("Welcome to the game");
-       myShelter.addPetToShelter(new VirtualPet("German","Brown",5,8,"Vicki",10,10));
-       myShelter.addPetToShelter(new VirtualPet("british","Black",6,10,"Bobby",10,5));
-       myShelter.addPetToShelter(new VirtualPet("irish","grey",10,11,"ruthie",11,5));
-       myShelter.addPetToShelter(new VirtualPet("Italian","white",5,15,"Jackie",12,10));
+       myShelter.addPetToShelter(new RoboticCat("RoboFred",4));
+       myShelter.addPetToShelter(new RoboticDog("RoboBob",8));
+       myShelter.addPetToShelter(new OrganicCat("Eritrean",5));
+       myShelter.addPetToShelter(new OrganicDog("Rwanda",7));
     while(myShelter.allPetsNotDead()){
         displayStats(myShelter);
-        System.out.println("What do you want to do with the pet?");
-        System.out.println("1 feed");
-        System.out.println("2 play");
-        System.out.println("3 water");
+        System.out.println("What do you want to do with the pets?");
+        System.out.println("1 feed all");
+        System.out.println("2 play all");
+        System.out.println("3 water all");
         System.out.println("4 add pet");
         System.out.println("5 adopt pet");
+        System.out.println("6 walk pet");
+        System.out.println("7 clean pet");
+        System.out.println("8 maintenance");
         System.out.println("0 exit");
         int choice = inputScanner.nextInt();
         inputScanner.nextLine();
@@ -48,6 +51,15 @@ public class VirtualPetApplication {
             System.out.println("Which Pet do you want to adopt?");
             myShelter.removePet(inputScanner.nextLine());
         }
+        else if (choice == 6) {
+            myShelter.walkAllPets();
+        }
+        else if (choice == 7) {
+            myShelter.cleanAllPets();
+        }
+        else if (choice == 8) {
+            myShelter.maintainAllPets();
+        }
         else {
             break;
         }
@@ -57,8 +69,10 @@ public class VirtualPetApplication {
   public void displayStats(PetShelter shelter){
       System.out.println("****Stats*******************************************************");
         for(VirtualPet currentPet: shelter.getShelter()){
-            System.out.println(currentPet.getName()+": Hunger "+ currentPet.getHunger()+ " thirst " + currentPet.getThirst()+ " boredom " + currentPet.getBoredom());
+            System.out.println(currentPet.toString());
         }
       System.out.println("*******************************************************");
   }
+
 }
+
