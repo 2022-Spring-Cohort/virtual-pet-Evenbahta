@@ -6,6 +6,11 @@ public class OrganicDog extends OrganicPet implements Walkable {
     public OrganicDog(String name, int age) {
         super(name, age);
     }
+@Override
+public  void wash() {
+        super.wash();
+        cage = 0;
+}
 
     @Override
     public void walk() {

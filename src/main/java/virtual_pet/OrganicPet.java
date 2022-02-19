@@ -39,6 +39,11 @@ public abstract class OrganicPet extends VirtualPet {
         }
 
         cleanLevel = cleanLevel - 10;
+
+        if(cleanLevel < 0) {
+            cleanLevel = 0;
+
+        }
     }
 
 
@@ -48,9 +53,18 @@ public abstract class OrganicPet extends VirtualPet {
 
     public void feed() {
         hunger -= 5;
+        if(hunger < 0) {
+            hunger = 0;
+
+        }
     }
 
     public void water() {
         thirst -= 15;
+        if(thirst < 0) {
+            thirst = 0;
+
+        }
+
     }
 }

@@ -27,7 +27,9 @@ public class PetShelter {
     }
     public void feedAllPets(){
         for (VirtualPet currentPet:shelter) {
-            //currentPet.feed();
+            if(currentPet instanceof OrganicPet){
+                ((OrganicPet)currentPet).feed();
+            }
         }
     }
     public void tickAllPets(){
@@ -42,14 +44,13 @@ public class PetShelter {
     }
     public void waterAllPets(){
         for (VirtualPet currentPet:shelter){
-            //currentPet.water();
+            if(currentPet instanceof OrganicPet){
+                ((OrganicPet)currentPet).water();
+            }
         }
     }
-    public void addAllPets(){
-        for (VirtualPet currentPet:shelter){
-            addPetToShelter(currentPet);
-        }
-    }
+
+
     public void removePet(String forAdoption){
         VirtualPet foundPet = null;
         for (VirtualPet currentPet:shelter){

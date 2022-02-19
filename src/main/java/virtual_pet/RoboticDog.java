@@ -13,6 +13,13 @@ public class RoboticDog extends RoboticPet implements Walkable{
     public void walk() {
         this.oilLevel -= 10;
         this.batteryLevel-=10;
+        if(oilLevel < 0) {
+            oilLevel = 0;
+        }
+        if(batteryLevel < 0) {
+            batteryLevel = 0;
+
+        }
 
 
     }

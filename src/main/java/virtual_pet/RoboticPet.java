@@ -37,7 +37,18 @@ public class RoboticPet extends VirtualPet{
     public void tick() {
         batteryLevel = batteryLevel - 10;
         oilLevel = oilLevel - 15;
+        if(batteryLevel < 0) {
+            batteryLevel = 0;
+        }
+        if(oilLevel < 0) {
+            oilLevel = 0;
+
+        }
+
+
     }
+
+
 
 
 }

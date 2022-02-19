@@ -45,8 +45,33 @@ public class VirtualPetApplication {
             myShelter.waterAllPets();
         }
         else if (choice == 4) {
-            myShelter.addAllPets();
+            System.out.println("What is the pets name?");
+            String newPetName = inputScanner.nextLine();
+            System.out.println("Is it a dog or cat?");
+            String newPetAnimal = inputScanner.nextLine();
+            System.out.println("Is it Organic or Robotic");
+            String newPetType = inputScanner.nextLine();
+            if (newPetAnimal.equalsIgnoreCase("dog")){
+                if(newPetType.equalsIgnoreCase("Robotic")){
+                    myShelter.addPetToShelter(new RoboticDog(newPetName,1));
+                }
+              else{
+                    myShelter.addPetToShelter(new OrganicDog(newPetName,1));
+                }
+
+            }
+            else {
+                if(newPetType.equalsIgnoreCase("Robotic")){
+                    myShelter.addPetToShelter(new RoboticCat(newPetName,1));
+                }
+                else{
+                    myShelter.addPetToShelter(new OrganicCat(newPetName,1));
+                }
+            }
+
+
         }
+
         else if (choice == 5){
             System.out.println("Which Pet do you want to adopt?");
             myShelter.removePet(inputScanner.nextLine());

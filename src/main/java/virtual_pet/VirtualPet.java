@@ -44,6 +44,11 @@ public abstract class VirtualPet {
 
     public void play() {
         boredom -= 10;
+
+        if(boredom < 0) {
+
+            boredom =0;
+        }
     }
 
     public boolean isDead() {
